@@ -6,8 +6,8 @@
     <title>Currently Unavailable - Wedding Memories</title>
     <link rel="icon" type="image/png" href="icon.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Import Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Quicksand:wght@500&display=swap');
 
         :root {
@@ -25,7 +25,6 @@
             overflow-x: hidden;
         }
 
-        /* Decorative Background Pattern */
         body::before {
             content: '🕉️';
             position: fixed;
@@ -39,6 +38,13 @@
             opacity: 0.03;
             pointer-events: none;
             z-index: -1;
+        }
+        
+        .caution-icon {
+            color: var(--wedding-dark-red); /* same maroon tone */
+            font-size: 1em; /* same as the surrounding text */
+            margin-left: 0.5rem;
+            vertical-align: middle;
         }
 
         .header {
@@ -284,6 +290,8 @@
                 justify-content: center;
             }
         }
+
+
     </style>
 </head>
 <body>
@@ -299,7 +307,11 @@
 </a>
 
 <header class="header">
-    <h1 class="unavailable-title">This Content is Currently Unavailable</h1>
+    <h1 class="unavailable-title">
+        This Content is Currently Unavailable
+        <i class="fas fa-exclamation-triangle caution-icon"></i>
+    </h1>
+
 </header>
 
 <div class="container">
@@ -317,18 +329,21 @@
 
                 <div class="contact-links">
                     <a href="mailto:work.haranath@gmail.com" class="contact-link">
-                        <span>✉️</span> work.haranath@gmail.com
+                        <i class="fas fa-envelope"></i> work.haranath@gmail.com
                     </a>
                     <a href="https://www.instagram.com/haranath_saha/" target="_blank" class="contact-link">
-                        <span>📸</span> @haranath_saha
+                        <i class="fab fa-instagram"></i> @haranath_saha
                     </a>
-                    <a href="https://www.facebook.com/haranath.saha" target="_blank" class="contact-link">
-                        <span>👤</span> haranath.saha
+                    <a href="https://www.facebook.com/aka.haranath/" target="_blank" class="contact-link">
+                        <i class="fab fa-facebook"></i> aka.haranath
                     </a>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
