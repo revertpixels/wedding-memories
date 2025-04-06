@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currently Unavailable - Wedding Memories</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Quicksand:wght@500&display=swap');
+
+        :root {
+            --wedding-red: #c41e3a;
+            --wedding-dark-red: #8b0000;
+            --wedding-gold: #ffd700;
+            --wedding-cream: #fff5f5;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--wedding-cream) 0%, #fff0ea 100%);
+            min-height: 100vh;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Decorative Background Pattern */
+        body::before {
+            content: '🕉️';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 200px;
+            display: grid;
+            place-items: center;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .header {
+            background: linear-gradient(to right, rgba(196, 30, 58, 0.1), rgba(255, 215, 0, 0.1));
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .unavailable-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--wedding-dark-red);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: var(--wedding-dark-red);
+            text-decoration: none;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 8px 15px;
+            border: 2px solid var(--wedding-dark-red);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+            letter-spacing: 0.5px;
+        }
+
+        .back-link:hover {
+            background-color: var(--wedding-dark-red);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(139, 0, 0, 0.2);
+        }
+
+        .back-icon {
+            font-size: 1.2rem;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .developer-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid var(--wedding-light-gold);
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .developer-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--wedding-gold);
+            margin: 2rem auto 1rem;
+            display: block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .developer-name {
+            font-family: 'Great Vibes', cursive;
+            color: var(--wedding-dark-red);
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .developer-title {
+            font-family: 'Quicksand', sans-serif;
+            color: #666;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--wedding-cream);
+            color: var(--wedding-dark-red);
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .contact-link:hover {
+            background: var(--wedding-dark-red);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(196, 30, 58, 0.2);
+        }
+
+        .message {
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            color: #555;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .decorative-border {
+            border: 4px solid var(--wedding-red);
+            position: fixed;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .border-top-left {
+            top: 20px;
+            left: 20px;
+            width: 70px;
+            height: 70px;
+            border-right: none;
+            border-bottom: none;
+            border-radius: 10px 0 0 0;
+        }
+
+        .border-top-right {
+            top: 20px;
+            right: 20px;
+            width: 70px;
+            height: 70px;
+            border-left: none;
+            border-bottom: none;
+            border-radius: 0 10px 0 0;
+        }
+
+        .border-bottom-left {
+            bottom: 20px;
+            left: 20px;
+            width: 70px;
+            height: 70px;
+            border-right: none;
+            border-top: none;
+            border-radius: 0 0 0 10px;
+        }
+
+        .border-bottom-right {
+            bottom: 20px;
+            right: 20px;
+            width: 70px;
+            height: 70px;
+            border-left: none;
+            border-top: none;
+            border-radius: 0 0 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .unavailable-title {
+                font-size: 2rem;
+            }
+
+            .back-link {
+                position: static;
+                margin: 1rem auto;
+                width: fit-content;
+                font-size: 0.9rem;
+            }
+
+            .header {
+                padding: 0.5rem 0 1.5rem 0;
+            }
+
+            .developer-card {
+                margin: 0 1rem;
+            }
+
+            .developer-img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .developer-name {
+                font-size: 1.8rem;
+            }
+
+            .decorative-border {
+                width: 50px;
+                height: 50px;
+                border-width: 3px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .unavailable-title {
+                font-size: 1.7rem;
+            }
+
+            .message {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .developer-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .developer-name {
+                font-size: 1.6rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.7rem;
+            }
+
+            .contact-link {
+                width: 80%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Decorative Borders -->
+<div class="decorative-border border-top-left"></div>
+<div class="decorative-border border-top-right"></div>
+<div class="decorative-border border-bottom-left"></div>
+<div class="decorative-border border-bottom-right"></div>
+
+<a href="index.html" class="back-link">
+    <span class="back-icon">◄</span>
+    Back to Home
+</a>
+
+<header class="header">
+    <h1 class="unavailable-title">This Content is Currently Unavailable</h1>
+</header>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <p class="message">
+                We're currently working on this section and it will be available soon. In the meantime,
+                you can contact the developer for any information or to report issues.
+            </p>
+
+            <div class="developer-card">
+                <img src="developer.jpg" alt="Developer - Haranath Saha" class="developer-img">
+                <h2 class="developer-name">Haranath Saha</h2>
+                <p class="developer-title">Web Developer & Designer</p>
+
+                <div class="contact-links">
+                    <a href="mailto:work.haranath@gmail.com" class="contact-link">
+                        <span>✉️</span> work.haranath@gmail.com
+                    </a>
+                    <a href="https://www.instagram.com/haranath_saha/" target="_blank" class="contact-link">
+                        <span>📸</span> @haranath_saha
+                    </a>
+                    <a href="https://www.facebook.com/haranath.saha" target="_blank" class="contact-link">
+                        <span>👤</span> haranath.saha
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
